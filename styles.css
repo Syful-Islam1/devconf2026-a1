@@ -1,0 +1,85 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Navbar Section */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 6%;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #575757;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Arimo", sans-serif;
+}
+
+.btn {
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  background: #1d4ed8;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Banner Section */
+header {
+  height: 90vh;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85) 40%,
+      rgba(0, 0, 0, 0.55) 55%,
+      rgba(0, 0, 0, 0.18) 90%,
+      rgba(0, 0, 0, 0.05) 40%
+    ),
+    url("./assets/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.header-content {
+  margin-top: 200px;
+  color: white;
+}
+
+.header-content h1 {
+  font-size: 80px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.header-content h1 span {
+  font-style: italic;
+}
+
+.header-content p {
+  max-width: 800px;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 300px;
+}
+
+.header-content a {
+  font-size: 24px;
+}
