@@ -83,3 +83,125 @@ header {
 .header-content a {
   font-size: 24px;
 }
+
+/* Main Section */
+.pricing {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 60px;
+  color: #0d1b2a;
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  font-size: 22px;
+  color: #575757;
+}
+
+.pricing-container {
+  display: flex;
+  gap: 25px;
+}
+
+.card {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 35px;
+  background: #fff;
+}
+
+.card h5 {
+  color: #7c7c7c;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.card h1 {
+  font-size: 64px;
+  color: #0d1b2a;
+  margin-bottom: 5px;
+}
+
+.card span {
+  color: #888888;
+}
+
+.card hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+.card ul {
+  list-style: none;
+  margin-bottom: 35px;
+}
+
+.card li {
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.card li::before {
+  content: "•";
+  color: #2563eb;
+  margin-right: 12px;
+}
+
+.card button {
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  border: 1px solid #2563eb;
+  background: white;
+  color: #2563eb;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Active Card */
+
+.active {
+  background: #0d1b2a;
+  color: white;
+}
+
+.active h5 {
+  color: #60a5fa;
+}
+
+.active h1 {
+  color: white;
+}
+
+.active span {
+  color: #c9d1d9;
+}
+
+.active hr {
+  border-color: #314155;
+}
+
+.active li {
+  color: #fff;
+}
+
+.active button {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
