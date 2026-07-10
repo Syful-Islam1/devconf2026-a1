@@ -245,7 +245,6 @@ main {
   border-radius: 16px;
 }
 
-
 /* Image */
 .speaker-card img {
   width: 100%;
@@ -276,4 +275,357 @@ main {
 .card-content p {
   color: #575757;
   font-size: 14px;
+}
+
+/* Job board section style */
+.job-board {
+  --jb-accent: #2563eb;
+  --jb-accent-dark: #1d4ed8;
+  --jb-accent-soft: #eff6ff;
+  --jb-bg: #ffffff;
+  --jb-bg-secondary: #f8fafc;
+  --jb-border: #e2e8f0;
+  --jb-text-primary: #0f172a;
+  --jb-text-secondary: #64748b;
+  --jb-text-muted: #94a3b8;
+
+  --jb-radius-sm: 12px;
+  --jb-radius-md: 16px;
+  --jb-radius-lg: 20px;
+
+  --jb-shadow-sm:
+    0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --jb-shadow-md:
+    0 4px 6px rgba(15, 23, 42, 0.04), 0 10px 24px rgba(15, 23, 42, 0.06);
+  --jb-shadow-lg:
+    0 12px 24px rgba(37, 99, 235, 0.1), 0 4px 8px rgba(15, 23, 42, 0.06);
+
+  --jb-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: var(--jb-bg);
+  padding: 96px 24px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  color: var(--jb-text-primary);
+}
+
+/* ---------------------------------------------------------------
+   2. CONTAINER
+   --------------------------------------------------------------- */
+.job-board__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 3 */
+.job-board__header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.job-board__tag {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #dbeafe;
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.job-board__title {
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+}
+
+.job-board__subtitle {
+  color: var(--text-light);
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.8;
+}
+/* ---------------------------------------------------------------
+   4. JOB CARDS GRID
+   Desktop: 3 columns | Tablet: 2 columns | Mobile: 1 column
+   --------------------------------------------------------------- */
+.job-board__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 72px;
+}
+
+@media (max-width: 1024px) {
+  .job-board__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .job-board__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   5. JOB CARD
+   --------------------------------------------------------------- */
+.job-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--jb-bg);
+  border: 1px solid var(--jb-border);
+  border-radius: var(--jb-radius-lg);
+  padding: 32px;
+  box-shadow: var(--jb-shadow-sm);
+  transition: var(--jb-transition);
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--jb-shadow-lg);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+/* -- Card top row: badge + logo -- */
+.job-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.job-card__badge {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.job-card__badge--hiring {
+  color: #15803d;
+  background-color: #f0fdf4;
+}
+
+.job-card__badge--featured {
+  color: var(--jb-accent-dark);
+  background-color: var(--jb-accent-soft);
+}
+
+.job-card__badge--urgent {
+  color: #b91c1c;
+  background-color: #fef2f2;
+}
+
+/* Invisible placeholder keeps the layout grid aligned on cards
+   that intentionally omit a badge (per spec, badge is optional) */
+.job-card__badge--placeholder {
+  visibility: hidden;
+}
+
+.job-card__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--jb-radius-sm);
+  background-color: var(--jb-bg-secondary);
+  border: 1px solid var(--jb-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--jb-text-secondary);
+  flex-shrink: 0;
+}
+
+/* -- Company + role -- */
+.job-card__company {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: var(--jb-text-primary);
+}
+
+.job-card__role {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--jb-accent);
+  margin: 0 0 24px 0;
+}
+
+/* -- Meta list (location, type, experience, salary) -- */
+.job-card__meta {
+  list-style: none;
+  margin: 0 0 24px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--jb-border);
+  border-bottom: 1px solid var(--jb-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.job-card__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.job-card__meta-label {
+  font-size: 12px;
+  color: var(--jb-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.job-card__meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--jb-text-primary);
+}
+
+/* -- Tech stack tags -- */
+.job-card__tags {
+  list-style: none;
+  margin: 0 0 28px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.job-card__tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--jb-text-secondary);
+  background-color: var(--jb-bg-secondary);
+  border: 1px solid var(--jb-border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: var(--jb-transition);
+}
+
+.job-card:hover .job-card__tag {
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+/* -- Card footer: Apply button -- */
+.job-card__footer {
+  margin-top: auto;
+}
+
+.job-card__apply {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--jb-accent);
+  background-color: var(--jb-accent-soft);
+  padding: 12px 24px;
+  border-radius: var(--jb-radius-sm);
+  transition: var(--jb-transition);
+}
+
+.job-card:hover .job-card__apply {
+  color: #ffffff;
+  background-color: var(--jb-accent);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.25);
+}
+
+/* ---------------------------------------------------------------
+   6. BOTTOM CTA
+   --------------------------------------------------------------- */
+.job-board__cta {
+  text-align: center;
+  background-color: var(--jb-bg-secondary);
+  border-radius: var(--jb-radius-lg);
+  padding: 64px 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.job-board__cta-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px 0;
+  color: var(--jb-text-primary);
+}
+
+.job-board__cta-subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--jb-text-secondary);
+  margin: 0 0 32px 0;
+}
+
+.job-board__cta-button {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--jb-accent);
+  padding: 14px 32px;
+  border-radius: var(--jb-radius-sm);
+  box-shadow: var(--jb-shadow-md);
+  transition: var(--jb-transition);
+}
+
+.job-board__cta-button:hover {
+  background-color: var(--jb-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(37, 99, 235, 0.28);
+}
+
+/* ---------------------------------------------------------------
+   7. RESPONSIVE TYPE ADJUSTMENTS
+   --------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .job-board {
+    padding: 64px 16px;
+  }
+
+  .job-board__title {
+    font-size: 32px;
+  }
+
+  .job-board__subtitle {
+    font-size: 16px;
+  }
+
+  .job-card__meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .job-board__cta {
+    padding: 48px 24px;
+  }
+
+  .job-board__cta-title {
+    font-size: 22px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   8. ACCESSIBILITY: reduced motion support
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .job-card,
+  .job-card__tag,
+  .job-card__apply,
+  .job-board__cta-button {
+    transition: none;
+  }
+
+  .job-card:hover,
+  .job-board__cta-button:hover {
+    transform: none;
+  }
 }
