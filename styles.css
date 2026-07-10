@@ -85,7 +85,8 @@ header {
 }
 
 /* Main Section */
-main {
+main,
+.footer {
   font-family: "Inter", sans-serif;
 }
 .pricing {
@@ -356,18 +357,6 @@ main {
   margin-bottom: 72px;
 }
 
-@media (max-width: 1024px) {
-  .job-board__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .job-board__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ---------------------------------------------------------------
    5. JOB CARD
    --------------------------------------------------------------- */
@@ -584,48 +573,101 @@ main {
   box-shadow: 0 12px 20px rgba(37, 99, 235, 0.28);
 }
 
-/* ---------------------------------------------------------------
-   7. RESPONSIVE TYPE ADJUSTMENTS
-   --------------------------------------------------------------- */
-@media (max-width: 640px) {
-  .job-board {
-    padding: 64px 16px;
-  }
-
-  .job-board__title {
-    font-size: 32px;
-  }
-
-  .job-board__subtitle {
-    font-size: 16px;
-  }
-
-  .job-card__meta {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .job-board__cta {
-    padding: 48px 24px;
-  }
-
-  .job-board__cta-title {
-    font-size: 22px;
-  }
+/* footer section styles */
+.footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 60px 0 25px;
 }
 
-/* ---------------------------------------------------------------
-   8. ACCESSIBILITY: reduced motion support
-   --------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-  .job-card,
-  .job-card__tag,
-  .job-card__apply,
-  .job-board__cta-button {
-    transition: none;
-  }
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
 
-  .job-card:hover,
-  .job-board__cta-button:hover {
-    transform: none;
-  }
+/* Top */
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Logo */
+
+.footer__logo h2 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.footer__logo span {
+  color: #2563eb;
+}
+
+/* Social */
+
+.footer__social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer__social a {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.footer__social a:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-3px);
+}
+
+/* Divider */
+
+.footer hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 25px;
+}
+
+/* Bottom */
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer__bottom p {
+  font-size: 15px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer__links a {
+  text-decoration: none;
+  color: #cbd5e1;
+  transition: 0.3s;
+}
+
+.footer__links a:hover {
+  color: #2563eb;
 }
